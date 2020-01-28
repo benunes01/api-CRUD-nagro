@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
-    
+
     async index(req, res) {
         const users = await User.findAll({ attributes: ['id', 'name', 'email', 'cpf'] });
 
@@ -11,8 +11,8 @@ class UserController {
 
     async store(req, res) {
         const schema = Yup.object().shape({
-            name: Yup.string().email().required(),
-            email: Yup.string().required(),
+            name: Yup.string().required(),
+            email: Yup.string().email().required(),
             cpf: Yup.string().required().min(11),
             password: Yup.string().required().min(6)
         });
@@ -81,6 +81,7 @@ class UserController {
             cpf
         });
     }
+
 }
 
 export default new UserController();

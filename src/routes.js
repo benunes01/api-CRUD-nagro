@@ -9,6 +9,8 @@ const routes = new Router();
 
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
+
+//Rota para login
 routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
